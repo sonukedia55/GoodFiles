@@ -168,8 +168,10 @@ $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
+	$stst='';
+	if($row["strikes"]>6)$stst="background-color:#f5b7b1;";
     	$entry_no=$row['entry_no'];
-        echo "<tr><td> " . $row["entry_no"]."</td><td contenteditable='true' onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",0)'>" . $row["cgpa"]."</td><td contenteditable='true'  onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",1)' >".$row["strikes"]."</td></tr>";
+        echo "<tr><td> " . $row["entry_no"]."</td><td contenteditable='true' onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",0)'>" . $row["cgpa"]."</td><td contenteditable='true' style='".$stst."' onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",1)' >".$row["strikes"]."</td></tr>";
     }
     
 }
@@ -205,8 +207,10 @@ $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
+	$stst='';
+	if($row["strikes"]>6)$stst="background-color:#f5b7b1;";
         $entry_no=$row['entry_no'];
-        echo "<tr><td> " . $row["entry_no"]."</td><td contenteditable='true' onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",0)'>" . $row["cgpa"]."</td><td contenteditable='true'  onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",1)' >".$row["strikes"]."</td></tr>";
+        echo "<tr><td> " . $row["entry_no"]."</td><td contenteditable='true' onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",0)'>" . $row["cgpa"]."</td><td contenteditable='true' style='".$stst."' onBlur='saveToDatabase(this.innerHTML,".$row["user_id"].",1)' >".$row["strikes"]."</td></tr>";
     }
     
 }
